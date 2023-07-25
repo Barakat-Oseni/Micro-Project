@@ -1,9 +1,4 @@
-HELP.md
 target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**
-!**/src/test/**
-!**/src/main/resources/data/**
 
 ### STS ###
 .apt_generated
@@ -21,16 +16,9 @@ target/
 *.ipr
 
 ### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+nbproject/private/
 build/
-
-### VS Code ###
-.vscode/
-/application.log
-/.mvn/wrapper/maven-wrapper.jar
-/.mvn/wrapper/maven-wrapper.properties
-/.mvn/wrapper/MavenWrapperDownloader.java
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
