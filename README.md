@@ -1,5 +1,3 @@
-# ALT SCHOOL CLOUD ENGINEERING 3RD SEMESTER EXAMINATION PROJECT
-
 # An utility service app that uploads/download images and files.
 
 This is an utility service app that handles uploads/downloads of images and files.
