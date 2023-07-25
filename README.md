@@ -19,15 +19,49 @@ This is an utility service app that handles uploads/downloads of images and file
 
 This project entails developing a single microservice-based application, packaging the application using Helm, and deploying it via CI/CD pipeline. The pipeline is meant to utilize Helm Charts for the deployment of the application.
 
-The `backend` folder contains the configuration for the S3 bucket and DynamoDB which will be used as backend and lock for storing the state of the terraform deployment.
-
-The `infrastructure` folder contains the terraform files for deploying the required infrastructure to AWS. It includes the network components like VPC, IGW, NAT-GW, Elastic IPs, Route tables and routes, subnets and security group. It also includes configurations for IAM roles, CloudWatch Log group, EKS node group and EKS cluster.
-
-The `deployment` folder contains the scripts used for deploying the two applications to the AWS infrastructure. Terraform Kubernetes manifest, deployment and service resources were used to deploy the `portfolio` and `socks shop` apps. It also contains configuration for the subdomains, `portfolio.abdulbarri.online` and `socks.abdulbarri.online`.
-
-The `monitoring` folder contains the scripts used to deploy prometheus and grafana to the cluster. This will be used for monnitoring and observing the performance and uptime of the applications.
 
 ## CI/CD Pipeline
 
 CI/CD was implemented for this project using Git Actions.  
+
+# Creating Helm Charts and installations
+
+helm create emp-helm-charts
+
+# Helm install
+# dry run
+
+helm template emp-helm-charts # you'll see the actual yaml files
+helm install helm-release emp-helm-charts
+helm list
+helm history helm-release
+kubectl get pod
+kubectl --namespace default port-forward $POD_NAME 8080:8080
+http://localhost:8080/v1/service
+
+# Helm Upgrade to revision 2 
+
+
+helm upgrade helm-release emp-helm-charts
+helm list
+helm history helm-release
+kubectl get pod
+kubectl --namespace default port-forward $POD_NAME 8080:8080
+http://localhost:8080/v2/service
+
+# with Helm Rollback to revision 1
+helm rollback helm-release 1
+helm list
+helm history helm-release
+kubectl get pod
+kubectl --namespace default port-forward $POD_NAME 8080:8080
+http://localhost:8080/v1/service
+
+# finally unistall the deployment
+helm uninstall helm-release
+3 - Helm Repo
+helm repo list
+helm repo add $name $uri
+helm repo add jenkins https://charts.jenkins.io
+helm repo update
 
