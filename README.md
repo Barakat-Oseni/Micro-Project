@@ -30,29 +30,29 @@ helm create emp-helm-charts
 
 ## Helm install
 
-helm template emp-helm-charts # you'll see the actual yaml files
-helm install helm-release emp-helm-charts
-helm list
-helm history helm-release
-kubectl get pod
-kubectl --namespace default port-forward $POD_NAME 8080:8080
-http://localhost:8080/v1/service
+* helm template emp-helm-charts # you'll see the actual yaml files
+* helm install helm-release emp-helm-charts
+* helm list
+* helm history helm-release
+* kubectl get pod
+* kubectl --namespace default port-forward $POD_NAME 8080:8080
+* http://localhost:8080/v1/service
 
 ## Helm Upgrade to revision 2 
 
 
-helm upgrade helm-release emp-helm-charts
-helm list
-helm history helm-release
-kubectl get pod
-kubectl --namespace default port-forward $POD_NAME 8080:8080
-http://localhost:8080/v2/service
+* helm upgrade helm-release emp-helm-charts
+* helm list
+* helm history helm-release
+* kubectl get pod
+* kubectl --namespace default port-forward $POD_NAME 8080:8080
+* http://localhost:8080/v2/service
 
 ## Helm Rollback to revision 1
-helm rollback helm-release 1
-helm list
-helm history helm-release
-kubectl get pod
-kubectl --namespace default port-forward $POD_NAME 8080:8080
-http://localhost:8080/v1/service
+* helm rollback helm-release 1
+* helm list
+* helm history helm-release
+* kubectl get pod
+* kubectl --namespace default port-forward $POD_NAME 8080:8080
+* http://localhost:8080/v1/service
 
